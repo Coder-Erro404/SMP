@@ -1,0 +1,35 @@
+{% extends "pred_app/base.html" %}
+{% load static %}
+{% block content %}
+<style>
+
+</style>
+<div class="container1">
+<img class="rounded mx-auto d-block" src="{% static 'pred_app/img/udit.jpg' %}" alt="Paris" >
+<div class="head1">
+<h3 >STOCK MARKET PREDICTION USING MACHINE LEARNING </h3>
+<h4> By</h4>
+<h4 style="color: red; font-weight: bold;">KANHAIYA SUKHLAL KHANSARE<h4>
+<h5>M.SC.IT (Part-2) Student of University Department Of Information Technology ,
+  Mumbai university</h5> 
+<h4>&</h4>
+<h4 style="color: red; font-weight: bold;"> ABHIJEET SHIVAJI DABHOLE</h4>
+<h5>M.SC.IT (Part-2) Student of University Department Of Information Technology ,
+  Mumbai university </h5>
+<br>
+<h4>Under the Guidance Of</h4>
+<h4 style="color: red; font-weight: bold;">Dr. Srivaramangai Ramanujam</h4>
+
+<h5>For the fulfilment of M.Sc in Information Technology</h5>
+<br>
+<a href="pred"><button onclick="{% static '/pred_app/data/Stock Market predication.pdf' %}" type="button" class="btn btn-primary btn-sm">CLICK TO STOCK MARKET PREDICTION</button></a>
+<br>
+<br>
+<a style="color: red; font-weight: bold;" href="{% static '/pred_app/data/Stock Market predication.pdf' %}" download>Click To Download Reaserch Paper PDF</a>
+</div>
+<br>
+</div>
+
+
+{% endblock content %}
+  
