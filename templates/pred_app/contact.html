@@ -1,0 +1,70 @@
+{% extends "pred_app/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<br>
+<section class="section1 clearfix">{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+				<div class="textcenter">
+					{% comment %} <span class="seperator"></span> {% endcomment %}
+					<h1>Conatct Us</h1>
+				</div>
+			</section>
+		
+			<section class="section2 clearfix">
+				<div class="col2 column1 first">
+					<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'>
+          </script>
+          <div class="sec2map" style='overflow:hidden;height:550px;width:100%;'>
+          <div id='gmap_canvas' style='height:100%;width:100%;border-radius: 50%;'>
+          </div><div><small><a href="http://embedgooglemaps.com">embed google maps</a></small>
+          </div>
+          <div><small><a href="http://freedirectorysubmissionsites.com/">free web directories</a></small></div>
+          <style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
+          </div>
+          <script type='text/javascript'>function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(19.075314480255834,72.88153973865361),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(19.075314480255834,72.88153973865361)});infowindow = new google.maps.InfoWindow({content:'<strong>My Location</strong><br>mumbai<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+				</div>
+				<div class="col2 column2 last">
+					<div class="sec2innercont">
+						<div class="sec2addr">
+							
+              <p><span class="collig">Addhress :</span>Mochi Galli Tatanagar Govandi Station Road Govandi Mumbai-400043</p>
+							<p><span class="collig">Phone :</span> +91 8898887276</p>
+							<p><span class="collig">Email :</span> kkhansare@gmail.com</p>
+						</div>
+					</div>
+					<div class="sec2contactform">
+						<h3 class="sec2frmtitle">Want to Know More?? Drop Us a Mail</h3>
+            {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+            <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+						<form action="#" method="post">
+            {% csrf_token %}
+							<div class="clearfix">
+								<input class="col2 first" type="text" name="F_name" placeholder="FirstName">
+								<input class="col2 last" type="text" name="L_name" placeholder="LastName">
+							</div>
+							<div class="clearfix">
+								<input  class="col2 first" type="Email" name="email" placeholder="Email">
+								<input class="col2 last" type="text" name="phone" placeholder="Contact Number">
+							</div>
+							<div class="clearfix">
+								<textarea name="content" id="content" cols="30" rows="7">Your message here...</textarea>
+							</div>
+							<div class="clearfix"><input type="submit" value="Send"></div>
+						</form>
+					</div>
+
+				</div>
+			</section>
+{% endblock content %}

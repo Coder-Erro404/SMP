@@ -1,0 +1,29 @@
+{% extends "pred_app/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container2">
+<div class="content" id="content">
+    <h1 class="head"> Stock Market Predication</h1>
+    {% comment %} <img alt="" height="180" src="https://thelinknewspaper.ca/images/articles/Volume_36/Special/_resized/mediadem.polls.LauraLalonde.gif" width="500"/> {% endcomment %}
+    <div class="form-group text-center">
+        <h2 class="head" align="center">
+            Get Your Predictions !
+        </h2>
+        <form align="left" class="" id="search">
+            <input class="form-control typeahead" size="40" data-url2="{% static 'pred_app/data/stock2.json' %}" data-url="{% static 'pred_app/data/stock.json' %}" id="typeahead" placeholder="Search Stock Symbol..." type="text" usr-url=""/>
+        </form>
+    </div>
+    <br>
+        <br>
+                    <form class ='form-group text-center' action="http://www.google.com/search" target="_blank" method="get">
+                        <h1 class="head"> Google search Engine</h1>
+                        <input maxlength="255" name="q" size="25" type="text" value=""/>
+                        <input type="submit" value="Search Web"/>
+                    </form>
+                    </div>
+        </br>
+    </br>
+</div>
+</div>
+{% endblock content %}
