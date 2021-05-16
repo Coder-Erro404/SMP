@@ -1,1 +1,1 @@
-web: gunicorn stock.wsgi
+web: gunicorn stock.wsgi --timeout 20000 --keep-alive 5 --log-level debug --log-file -
