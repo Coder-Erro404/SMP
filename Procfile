@@ -1,1 +1,1 @@
-web: gunicorn stock.wsgi --timeout 10000000000000000000000000000000
+web: gunicorn stock.wsgi --timeout 100
