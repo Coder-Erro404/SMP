@@ -1,1 +1,1 @@
-web: gunicorn stock.wsgi --preload
+web: gunicorn stock.wsgi --timeout 10
