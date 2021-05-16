@@ -1,1 +1,1 @@
-web: gunicorn stock.wsgi --timeout 100
+web: waitress-serve --port=$PORT stock.wsgi:application
