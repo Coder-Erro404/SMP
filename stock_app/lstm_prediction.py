@@ -48,13 +48,13 @@ def lstm_prediction(se, stock_symbol):
 	x_totrain = np.reshape(x_totrain, (x_totrain.shape[0],x_totrain.shape[1],1))
 	#LSTM neural network
 	lstm_model = Sequential()
-	lstm_model.add(LSTM(units=50, return_sequences=True, input_shape=(x_totrain.shape[1],1)))
-	lstm_model.add(LSTM(units=50))
+	lstm_model.add(LSTM(units=100, return_sequences=True, input_shape=(x_totrain.shape[1],1)))
+	lstm_model.add(LSTM(units=100))
 	lstm_model.add(Dense(1))
 	lstm_model.compile(loss='mean_squared_error', optimizer='adadelta')
-	lstm_model.fit(x_totrain, y_totrain, epochs=3, batch_size=1, verbose=2)
+	lstm_model.fit(x_totrain, y_totrain, epochs=1, batch_size=1, verbose=2)
 	#predicting next data stock price
-	myinputs = new_seriesdata[len(new_seriesdata) - (100) - 60:].values
+	myinputs = new_seriesdata[len(new_seriesdata) - (30) - 60:].values
 	myinputs = myinputs.reshape(-1,1)
 	myinputs  = scalerdata.transform(myinputs)
 	tostore_test_result = []
@@ -67,7 +67,7 @@ def lstm_prediction(se, stock_symbol):
 
 
 	#Combining og and predicted dataset for end result.
-	datelist = pd.date_range(pd.datetime.now().date(), periods=101)[1:]
+	datelist = pd.date_range(pd.datetime.now().date(), periods=31)[1:]
 	predicted_df = pd.DataFrame(myclosing_priceresult, columns=['Close'], index=datelist)
 	result_df = pd.concat([og_df, predicted_df])[['Close']]
 	result_df = result_df.reset_index(inplace=False)

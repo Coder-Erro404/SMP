@@ -3,6 +3,7 @@ from stock_app.lstm_prediction import *
 from .models import Contact
 from django.contrib import  messages
 from .models import Contact
+from tensorflow import keras
 
 # --------------- MAIN WEB PAGES -----------------------------
 def redirect_root(request):
